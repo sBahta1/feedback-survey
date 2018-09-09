@@ -20,10 +20,12 @@ class Q4View extends Component {
             payload: this.state.comment
         }
         this.props.dispatch(action);
+        console.log(this.props.reduxState.feedback);
+        
         this.submitSurvey();
     }
     submitSurvey = () => {
-        let completeSurvey = this.props.reduxState.feeback;
+        let completeSurvey = this.props.reduxState.feedback;
         axios({
             method: 'POST',
             url: '/feedback',
@@ -53,5 +55,5 @@ class Q4View extends Component {
 }//end class
 const mapReduxStateToProps = (reduxState)=>({
     reduxState
-});
-export default connect()(Q4View);
+})
+export default connect(mapReduxStateToProps)(Q4View);

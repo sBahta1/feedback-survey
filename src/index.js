@@ -5,6 +5,7 @@ import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 
 const emptySurvey = {
     feeling: 0,
@@ -28,7 +29,8 @@ const feedback = (state = emptySurvey, action) => {
 }
 
 const storeInstance = createStore(
-    feedback
+   combineReducers({feedback}),
+    applyMiddleware(logger),
 );
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
