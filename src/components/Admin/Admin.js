@@ -1,19 +1,31 @@
-import React, {Component } from 'react';
+import React, { Component } from 'react';
+import AdminTable from './AdminTable/AdminTable';
+import Axios from 'axios';
+import { connect } from 'react-redux';
+class Admin extends Component {
+    componentDidMount() {
+        this.getFeedback();
+    }
 
-class Admin extends Component{
-render(){
-    return(
-        <table>
-            <thead>
-                <tr>
-                    <th>Feeling</th>
-                    <th>Comprehension</th>
-                    <th>Support</th>
-                    <th>Comments</th>
-                    <th>Remove/Flag</th>
-                </tr>
-            </thead>
-        </table>
-    )
-}
+    getFeedback = () => {
+        Axios({
+            method: 'GET',
+            url: '/feedback'
+        }).then((response) => {
+            const feedbackHistory = response.data;
+            const action = { type: 'GET_HISTORY', payload: feedbackHistory };
+            this.props.distpatch(action);
+        }).catch((error) => {
+            console.log('Error getting feedback history:', error);
+        })
+    }
+
+    render() {
+        return (
+            <AdminTable />
+        )
+    }
 }//end class 
+
+const mapReduxStateToProps = reduxState => ({reduxState});
+export default connect(mapReduxStateToProps)(Admin);

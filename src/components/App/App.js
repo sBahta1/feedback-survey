@@ -25,7 +25,7 @@ class App extends Component {
           <Route path="/3" component={Q3View} />
           <Route path="/4" component={Q4View} />
           <Route path="/5" component={SuccessView} />
-          <Route path="admin" component={Admin} />
+          <Route path="/admin" component={Admin} />
         </div>
       </Router>
     );
