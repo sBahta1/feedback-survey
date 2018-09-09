@@ -13,6 +13,15 @@ const emptySurvey = {
     support: 0,
     comments: '',
 }
+
+const history = (state = [], action) => {
+    if (action.type === 'GET_HISTORY') {
+        const feedbackHistoryFromServer = action.payload;
+        return feedbackHistoryFromServer;
+    }
+    return state;
+};
+
 const feedback = (state = emptySurvey, action) => {
     if (action.type === 'FEELING') {
         return { ...state, feeling: action.payload };
@@ -29,7 +38,10 @@ const feedback = (state = emptySurvey, action) => {
 }
 
 const storeInstance = createStore(
-   combineReducers({feedback}),
+    combineReducers({
+        feedback,
+        history
+    }),
     applyMiddleware(logger),
 );
 
