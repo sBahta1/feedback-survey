@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import './App.css';
 //import { HashRouter as Router, Route } from "react-router-dom";
 import Q1View from '../Q1View/Q1View'
 import Q2View from '../Q2View/Q2View'
 import Q3View from '../Q3View/Q3View'
+import Q4View from '../Q4View/Q4View'
 import SuccessView from '../SuccessView/SuccessView'
 import { HashRouter as Router, Route } from "react-router-dom";
 class App extends Component {
@@ -21,7 +22,8 @@ class App extends Component {
           <Route exact path="/" component={Q1View} />
           <Route path="/2" component={Q2View} />
           <Route path="/3" component={Q3View} />
-          <Route path="/4" component={SuccessView} />
+          <Route path="/4" component={Q4View} />
+          <Route path="/5" component={SuccessView} />
         </div>
       </Router>
     );
