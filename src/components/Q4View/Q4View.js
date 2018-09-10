@@ -13,11 +13,11 @@ class Q4View extends Component {
         this.setState({
             comments: event.target.value,
         });
-        let action = {
-            type: 'COMMENTS',
-            payload: this.state.comments
-        }
-        this.props.dispatch(action);
+        // let action = {
+        //     type: 'COMMENTS',
+        //     payload: this.state.comments
+        // }
+        // this.props.dispatch(action);
     }
     handleNextQ = (event) => {
         let action = {
@@ -25,24 +25,24 @@ class Q4View extends Component {
             payload: this.state.comments
         }
         this.props.dispatch(action);
-        //console.log(this.props.reduxState.feedback);
-        
-        this.submitSurvey();
+     
+        this.props.history.push('/5');
+       // this.submitSurvey();
     }
-    submitSurvey = () => {
-        let completeSurvey = this.props.reduxState.feedback;
-        console.log(completeSurvey);
-        axios({
-            method: 'POST',
-            url: '/feedback',
-            data: completeSurvey
-        }).then((response) => {
-            console.log(response);
-            this.props.history.push('/5');
-        }).catch((error) => {
-            console.log('error:', error);
-        })
-    }//end submitSurvey
+    // submitSurvey = () => {
+    //     let completeSurvey = this.props.reduxState.feedback;
+    //     console.log(completeSurvey);
+    //     axios({
+    //         method: 'POST',
+    //         url: '/feedback',
+    //         data: completeSurvey
+    //     }).then((response) => {
+    //         console.log(response);
+    //         this.props.history.push('/5');
+    //     }).catch((error) => {
+    //         console.log('error:', error);
+    //     })
+    // }//end submitSurvey
     render() {
         return (
             <div>
