@@ -23,9 +23,10 @@ app.post('/feedback', (req, res) => {
         })
 })
 app.put('/feedback/:id', (req, res) => {
-    const flag = req.body;
+    console.log(req.params.id);
+    
     const query = `UPDATE "feedback" SET "flagged" = 'true' WHERE "id" =  $1;`;
-    pool.query(query[flag.id]).then((results) => {
+    pool.query(query,[req.params.id]).then((results) => {
         res.sendStatus(201);
     }).catch((error) => {
         console.log('error', error);
