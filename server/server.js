@@ -22,6 +22,17 @@ app.post('/feedback', (req, res) => {
             res.sendStatus(500);
         })
 })
+app.put('/feedback/:id', (req, res) => {
+    const flag = req.body;
+    const query = `UPDATE "feedback" SET "flagged" = 'true' WHERE "id" =  $1;`;
+    pool.query(query[flag.id]).then((results) => {
+        res.sendStatus(201);
+    }).catch((error) => {
+        console.log('error', error);
+        res.sendStatus(500);
+    })
+})
+
 
 app.get('/feedback', (req, res) => {
     const query = `SELECT * FROM "feedback";`;
@@ -33,11 +44,11 @@ app.get('/feedback', (req, res) => {
     })
 })
 
-app.delete('/feedback/:id', (req,res)=>{
+app.delete('/feedback/:id', (req, res) => {
     const query = `DELETE FROM "feedback" WHERE "id" = $1;`;
-    pool.query(query, [req.params.id]).then((results)=>{
+    pool.query(query, [req.params.id]).then((results) => {
         res.sendStatus(201);
-    }).catch((error)=>{
+    }).catch((error) => {
         console.log(error);
         res.sendStatus(500);
     })

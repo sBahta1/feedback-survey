@@ -29,7 +29,7 @@ class Q3View extends Component {
                     <h3>
                         How well are you being supported?
                     </h3><br />
-                    <input onChange={this.handleInputChange} />
+                    <input onChange={this.handleInputChange} /><br />
                     <button onClick={this.handleNextQ}>Next</button>
                 </div>
             </div>
