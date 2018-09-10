@@ -6,26 +6,32 @@ class Q4View extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            comment: '',
+            comments: '',
         }
     }
     handleInputChange = (event) => {
         this.setState({
-            comment: event.target.value,
+            comments: event.target.value,
         });
+        let action = {
+            type: 'COMMENTS',
+            payload: this.state.comments
+        }
+        this.props.dispatch(action);
     }
     handleNextQ = (event) => {
         let action = {
             type: 'COMMENTS',
-            payload: this.state.comment
+            payload: this.state.comments
         }
         this.props.dispatch(action);
-        console.log(this.props.reduxState.feedback);
+        //console.log(this.props.reduxState.feedback);
         
         this.submitSurvey();
     }
     submitSurvey = () => {
         let completeSurvey = this.props.reduxState.feedback;
+        console.log(completeSurvey);
         axios({
             method: 'POST',
             url: '/feedback',

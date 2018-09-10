@@ -14,7 +14,7 @@ class Admin extends Component {
         }).then((response) => {
             const feedbackHistory = response.data;
             const action = { type: 'GET_HISTORY', payload: feedbackHistory };
-            this.props.distpatch(action);
+            this.props.dispatch(action);
         }).catch((error) => {
             console.log('Error getting feedback history:', error);
         })

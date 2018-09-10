@@ -23,6 +23,16 @@ app.post('/feedback', (req, res) => {
         })
 })
 
+app.get('/feedback', (req, res) => {
+    const query = `SELECT * FROM "feedback";`;
+    pool.query(query).then(results => {
+        res.send(results.rows);
+    }).catch((error) => {
+        console.log('error getting feedback', error);
+        res.sendStatus(500);
+    })
+})
+
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
     console.log('Listening on port: ', port);
