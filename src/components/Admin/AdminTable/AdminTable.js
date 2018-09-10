@@ -20,7 +20,7 @@ class AdminTable extends Component {
                     {this.props.reduxState.history.map((survey, i) => {
                         console.log(survey);
                         return (
-                            <AdminTableItem key={i} survey={survey} />
+                            <AdminTableItem delete={this.props.delete} key={i} survey={survey} />
                         )
                     })}
                 </tbody>

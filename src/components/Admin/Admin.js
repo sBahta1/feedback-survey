@@ -19,10 +19,21 @@ class Admin extends Component {
             console.log('Error getting feedback history:', error);
         })
     }
-
+    deleteBtn = (event)=>{
+        console.log(event.target.value);
+        Axios({
+            method:'DELETE',
+            url:'/feedback/' + event.target.value
+        }).then((response)=>{
+            console.log(response);
+            this.getFeedback();
+        }).catch((error)=>{
+              console.log('error', error);
+        })
+    }
     render() {
         return (
-            <AdminTable />
+            <AdminTable  delete={this.deleteBtn}/>
         )
     }
 }//end class 

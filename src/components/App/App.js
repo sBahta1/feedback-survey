@@ -10,6 +10,8 @@ import SuccessView from '../SuccessView/SuccessView'
 import Admin from '../Admin/Admin'
 import { HashRouter as Router, Route } from "react-router-dom";
 class App extends Component {
+
+  
   render() {
     return (
       <Router>
