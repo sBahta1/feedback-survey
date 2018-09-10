@@ -13,6 +13,10 @@ class AdminTableItem extends Component{
 //             console.log('error', error);
 //       })
 //   }
+toggleFlag= (event)=>{
+console.log('click',event.target.value);
+
+}
     render(){
         return(
             <tr>
@@ -20,7 +24,8 @@ class AdminTableItem extends Component{
                 <td>{this.props.survey.understanding}</td>
                 <td>{this.props.survey.support}</td>
                 <td>{this.props.survey.comments}</td>
-                <td><button value={this.props.survey.id} onClick={this.props.delete}>Remove</button><button>Flag</button></td>
+                <td><button value={this.props.survey.id} onClick={this.props.delete}>Remove</button>
+                <button value={this.props.survey.flagged} onClick={this.toggleFlag}>Flag</button></td>
             </tr>
         )
     }
