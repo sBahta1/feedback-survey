@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-
+import Button from '@material-ui/core/Button';
 class Q4View extends Component {
     constructor(props) {
         super(props);
@@ -32,7 +32,7 @@ class Q4View extends Component {
                         Please leave any comments you might have.
                 </h3><br />
                     <input onChange={this.handleInputChange} /><br />
-                    <button onClick={this.handleNextQ}>Submit</button>
+                    <Button variant="contained" color="primary" onClick={this.handleNextQ}>Submit</Button>
 
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import Button from '@material-ui/core/Button';
 class Q3View extends Component {
     constructor(props) {
         super(props);
@@ -30,7 +30,7 @@ class Q3View extends Component {
                         How well are you being supported?
                     </h3><br />
                     <input onChange={this.handleInputChange} /><br />
-                    <button onClick={this.handleNextQ}>Next</button>
+                    <Button variant="contained" color="primary" onClick={this.handleNextQ}>Next</Button>
                 </div>
             </div>
         )

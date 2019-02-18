@@ -19,8 +19,9 @@ class Admin extends Component {
             console.log('Error getting feedback history:', error);
         })
     }
+    
     deleteBtn = (event) => {
-        console.log(event.target.value);
+        console.log(event.currentTarget.value);
         Axios({
             method: 'DELETE',
             url: '/feedback/' + event.target.value
@@ -31,8 +32,9 @@ class Admin extends Component {
             console.log('error', error);
         })
     }
+
     flagFeedback = (event) => {
-        console.log('click', event.target.value, event.target.id);
+        console.log('click', event.currentTarget.value, event.currentTarget.id);
         //let flag = event.target.value;
         //let id = event.target.id;
         // if (event.target.value == false) {

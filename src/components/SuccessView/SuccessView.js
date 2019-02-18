@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-
+import Button from '@material-ui/core/Button';
 class SuccessView extends Component {
 componentDidMount(){
 this.submitSurvey();
@@ -33,7 +33,7 @@ submitSurvey = () => {
                 <h3>
                     Thank you for your feedback!
             </h3>
-                <button onClick={this.handleNewSurvey}>Leave New Feedback</button>
+            <Button variant="contained" color="primary" onClick={this.handleNewSurvey}>Leave New Feedback</Button>
             </div>
         )
     }

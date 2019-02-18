@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
 class AdminTableItem extends Component {
     //   deleteBtn = (event)=>{
     //       console.log(event.target.value);
@@ -37,8 +38,24 @@ class AdminTableItem extends Component {
                 <td>{this.props.survey.understanding}</td>
                 <td>{this.props.survey.support}</td>
                 <td>{this.props.survey.comments}</td>
-                <td><button value={this.props.survey.id} onClick={this.props.delete}>Remove</button>
-                    <button value={this.props.survey.flagged} id={this.props.survey.id} onClick={this.props.flag}>Flag</button></td>
+                <td>{this.props.survey.id}</td>
+                <td>
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        value={this.props.survey.id}
+                        onClick={this.props.delete}
+                    >
+                        Remove
+                    </Button>
+                    <Button
+                        value={this.props.survey.flagged}
+                        id={this.props.survey.id}
+                        onClick={this.props.flag}
+                    >
+                        Flag
+                    </Button>
+                </td>
             </tr>
         )
     }
