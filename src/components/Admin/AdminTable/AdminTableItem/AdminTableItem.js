@@ -1,36 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Button from '@material-ui/core/Button';
 class AdminTableItem extends Component {
-    //   deleteBtn = (event)=>{
-    //       console.log(event.target.value);
-    //       axios({
-    //           method:'DELETE',
-    //           url:'/feedback/' + event.target.value
-    //       }).then((response)=>{
-    //           console.log(response);
-    //           this.props.getFeedback();
-    //       }).catch((error)=>{
-    //             console.log('error', error);
-    //       })
-    //   }
-
-    // flagFeedback = (event) => {
-    //     console.log('click', event.target.value, event.target.id);
-    //     let flag = event.target.value;
-    //     let id = event.target.id;
-    //     if (flag === false) {
-    //         axios({
-    //             method: 'PUT',
-    //             url: '/feedback/' + id
-    //         }).then((response) => {
-    //             console.log(response);
-    //             this.getFeedback
-    //         }).catch((error) => {
-    //             console.log('error', error);
-    //         })
-    //     }
-    // }
     render() {
         return (
             <tr>

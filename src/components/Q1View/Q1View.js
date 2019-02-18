@@ -18,7 +18,7 @@ class Q1View extends Component {
     handleNextQ = (event) => {
         let action = {
             type: 'FEELING',
-            payload: parseInt(this.state.rating)
+            payload: parseInt(this.state.rating, 10)
         }
         this.props.dispatch(action);
         this.props.history.push('/2');

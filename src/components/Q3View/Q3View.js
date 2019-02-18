@@ -16,7 +16,7 @@ class Q3View extends Component {
     handleNextQ = (event) => {
         let action = {
             type: 'SUPPORT',
-            payload: parseInt(this.state.rating)
+            payload: parseInt(this.state.rating, 10)
         }
         this.props.dispatch(action);
         this.props.history.push('/4');
@@ -35,6 +35,5 @@ class Q3View extends Component {
             </div>
         )
     }
-
 }//end class
 export default connect()(Q3View);
