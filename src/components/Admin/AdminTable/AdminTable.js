@@ -3,7 +3,7 @@ import AdminTableItem from './AdminTableItem/AdminTableItem';
 import { connect } from 'react-redux';
 class AdminTable extends Component {
 
-    
+
     render() {
         return (
             <table>
@@ -20,7 +20,12 @@ class AdminTable extends Component {
                     {this.props.reduxState.history.map((survey, i) => {
                         console.log(survey);
                         return (
-                            <AdminTableItem delete={this.props.delete} flag={this.props.flag} key={i} survey={survey} />
+                            <AdminTableItem
+                                delete={this.props.delete}
+                                flag={this.props.flag}
+                                key={i}
+                                survey={survey}
+                            />
                         )
                     })}
                 </tbody>

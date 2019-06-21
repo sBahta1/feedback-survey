@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
+
 class Q4View extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             comments: '',
         }
-    }
+    };
     handleInputChange = (event) => {
         this.setState({
             comments: event.target.value,
         });
-    }
+    };
     handleNextQ = (event) => {
         let action = {
             type: 'COMMENTS',
@@ -21,7 +23,7 @@ class Q4View extends Component {
         this.props.dispatch(action);
         this.props.history.push('/5');
     }
-    
+
     render() {
         return (
             <div>
@@ -29,9 +31,16 @@ class Q4View extends Component {
                 <div>
                     <h3>
                         Please leave any comments you might have.
-                </h3><br />
-                    <input onChange={this.handleInputChange} /><br />
-                    <Button variant="contained" color="primary" onClick={this.handleNextQ}>Submit</Button>
+                    </h3>
+                    <br />
+                    <input onChange={this.handleInputChange} />
+                    <br />
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={this.handleNextQ}>
+                        Submit
+                    </Button>
 
                 </div>
             </div>
